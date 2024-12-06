@@ -1,11 +1,9 @@
 
 
-import 'dart:io';
-
 import 'common/readfiles.dart';
 
 Future<void> exerciceOne() async {
-  List<List<int>> columns = await getListFromFile('dayone/input-1.txt');
+  List<List<int>> columns = await getTwoColumnFromFile('dayone/input-1.txt');
   final column1 = columns[0];
   final column2 = columns[1];
   column1.sort();
@@ -20,7 +18,7 @@ Future<void> exerciceOne() async {
 }
 
 Future<void> exerciceTwo() async {
-  List<List<int>> columns = await getListFromFile('dayone/input-1.txt');
+  List<List<int>> columns = await getTwoColumnFromFile('dayone/input-1.txt');
   final column1 = columns[0];
   final column2 = columns[1];
   column1.sort();
@@ -46,5 +44,6 @@ Future<void> exerciceTwo() async {
 }
 
 void main() async {
+  await exerciceOne();
   await exerciceTwo();
 }

@@ -4,7 +4,7 @@
 
 import 'dart:io';
 
-Future<List<List<int>>> getListFromFile(String filename) async {
+Future<List<List<int>>> getTwoColumnFromFile(String filename) async {
   final file = File(filename);
   final lines = await file.readAsLines();
 
@@ -23,4 +23,22 @@ Future<List<List<int>>> getListFromFile(String filename) async {
   }
 
   return [column1, column2];
+}
+
+Future<List<List<int>>> getLinesFromFile(String filename) async {
+  final file = File(filename);
+  final lines = await file.readAsLines();
+
+  List<List<int>> result = [];
+  for (var line in lines) {
+    var line_result = line.split(RegExp(r'\s+')).map((e) => int.parse(e)).toList();
+    result.add(line_result);
+  }
+  return result;
+}
+
+Future<String> getTextFromFile(String filename) async {
+  final file = File(filename);
+  final result = await file.readAsString();
+  return result;
 }
