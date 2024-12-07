@@ -42,3 +42,9 @@ Future<String> getTextFromFile(String filename) async {
   final result = await file.readAsString();
   return result;
 }
+
+Future<List<String>> getFileLines(String filename) async {
+  final file = File(filename);
+  final lines = await file.readAsLines();
+  return lines;
+}
